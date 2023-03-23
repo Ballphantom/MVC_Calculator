@@ -2,8 +2,11 @@ import CalculatorController from "./controller/controller";
 
 const controller = new CalculatorController();
 
-const num1 = parseFloat(process.argv[2]);
-const num2 = parseFloat(process.argv[3]);
-const operator = process.argv[4];
+let argv = process.argv.slice(2)
+
+const num1 = parseFloat(argv[0]);
+const num2 = parseFloat(argv[1]);
+const operator = argv[2];
+
 
 controller.calculate(num1, num2, operator);
