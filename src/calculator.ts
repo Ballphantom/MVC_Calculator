@@ -1,26 +1,27 @@
 import CalculatorController from "./controller/controller";
+import * as readline from "readline";
 
 const controller = new CalculatorController();
 
 let num1: number, num2: number, operator: string;
 
-process.stdout.write("Enter num1: ");
-process.stdin.once("data", (data) => {
-  num1 = parseFloat(data.toString().trim());
-  //console.log(num1);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-  process.stdout.write("Enter num2: ");
-  process.stdin.once("data", (data) => {
-    num2 = parseFloat(data.toString().trim());
-    //console.log(num2);
+rl.question("Enter num1: ", (answer) => {
+  num1 = parseFloat(answer);
 
-    process.stdout.write("Enter operator: ");
-    process.stdin.once("data", (data) => {
-      operator = data.toString().trim();
+  rl.question("Enter num2: ", (answer) => {
+    num2 = parseFloat(answer);
+
+    rl.question("Enter operator: ", (answer) => {
+      operator = answer;
 
       controller.calculate(num1, num2, operator);
 
-      process.exit();
+      rl.close();
     });
   });
 });
