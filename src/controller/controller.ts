@@ -11,13 +11,31 @@ class CalculatorController {
   }
 
   calculate(num1: number, num2: number, operator: string) {
-    this.model.setNum1(num1);
+    let result = 0;
+    this.model.setNum1(num1)
     this.model.setNum2(num2);
     this.model.setOperator(operator);
-
-    const result = this.model.getResult();
-
-    this.view.displayResult(num1,operator,num2,result);
+    
+    switch (operator) {
+      case "+":  
+         /*this.view.displayResult(this.model.add())*/
+         result = this.model.add()
+         break;
+      case "-":
+         /*this.view.displayResult(this.model.substract())*/
+         result = this.model.substract()
+         break;
+      case "*":
+         /*this.view.displayResult(this.model.multiply())*/
+         result = this.model.multiply()
+         break;
+      case "/":
+         /*this.view.displayResult(this.model.division())*/
+         result = this.model.division()
+         break;
+    } 
+    
+    this.view.displayResult(result);
   }
 }
 
