@@ -3,7 +3,7 @@ class CalculatorModel {
     private num2: number;
     private operator: string;
   
-    constructor() { //เรียกใช้ object จาก CalculatorModel
+    constructor() { 
       this.num1 = 0;
       this.num2 = 0;
       this.operator = "";
