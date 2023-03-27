@@ -35,9 +35,8 @@ class CalculatorController {
          break;
     } 
     
-    
+    this.view.displayResult(result);
   }
 }
 
 export default CalculatorController;
-
